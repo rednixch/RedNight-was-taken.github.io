@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr-FR"><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script><head>
+
+<meta name="google-site-verification" content="SIPbV_80yDIFLcTHQff2TZ0Zq9gC6auyqdxaL5AoowU">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, height=device-height">
+<title>Présentation de Marie | Etablissement d'enseignement Catholique</title>
+
+<link rel="stylesheet" href="https://www.presentation-de-marie.fr/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=3.1.6" type="text/css" media="all">
+
+	<link rel="stylesheet" href="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/style.css" media="screen">
+<link rel="pingback" href="https://www.presentation-de-marie.fr/xmlrpc.php">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/css/idangerous.swiper.css">
+<script src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/js/idangerous.swiper.js"></script>
+
+
+
+
+
+<!--TEST FancyBoite-->
+<link type="text/css" rel="stylesheet" href="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/plugin_future/fancybox/jquery.fancybox-1.3.0.css">
+<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/plugin_future/fancybox/jquery.fancybox-1.3.0.js"></script>
+
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+
+
+
+		//lance une premiere fois
+		widthEcran = $(window).width();
+		heightEcran = $(window).height();
+		repositionner();
+
+
+		$(window).resize(function() {
+			repositionner();
+		});
+
+		function repositionner(){
+		    largeurBlocContenu=$('#callageHeader .container').width();
+		    largeurBloc=((widthEcran-largeurBlocContenu)/2);
+		    //alert("largeur ecran > " + widthEcran + "largeur contenu > " + largeurBlocContenu + " margeur masque" + largeurBloc );
+		    $('header .fond-gauche').width((largeurBloc+60)).css({'left': '-'+largeurBloc+'px'});
+		    //console.log(widthEcran);
+
+
+		    //SLIDER
+		    //Calcul de la hauteur en mode mobile
+		    //widthEcran
+
+		    if(widthEcran<480){
+		    	widthEcran = $(window).width();
+		    	hauteurSliderDyn=($(window).width()/100)*79.16666666666667;
+		    	pictoMarginTop=(hauteurSliderDyn/100)*20.45132743362832;
+		    	//console.log('petit > ' + widthEcran + "px");
+		    	$("header, header .swiper-container, header .masqueSliderContraste").height(hauteurSliderDyn);
+		    	$('body.home .container.containterHome').css({'margin-top':'-' +pictoMarginTop+ 'px'});
+
+		    	if(widthEcran<=423){
+		    		//alert('reduit');
+		    		$('#mobile-top-logo a, #mobile-top-logo a img').width();
+		    	}
+
+		    }else if(widthEcran<940){
+		    	widthEcran = $(window).width();
+		    	hauteurSliderDyn=($(window).width()/100)*46.38297872340426;
+		    	pictoMarginTop=(hauteurSliderDyn/100)*30;
+		    	$("header, header .swiper-container, header .masqueSliderContraste").height(hauteurSliderDyn);
+		    	$('body.home .container.containterHome').css({'margin-top':'-' +pictoMarginTop+ 'px'})
+		    }else{
+		    	widthEcran = $(window).width();
+		    	$("header, header .swiper-container, header .masqueSliderContraste").height(436);
+		    	$('body.home .container.containterHome').css({'margin-top':'-85px'});
+		    }
+		}
+
+		/*** SLIDER ********************************************/
+		  var mySwiper = $('.swiper-container').swiper({
+		    //Your options here:
+		    mode:'horizontal',
+		    loop: true,
+		    autoplay:3000
+		    //etc..
+		  });
+		/***********************************************/
+
+
+		$('#mobile-top-menu-btn').click(function(){
+			//alert('click');
+			if ($('#mobile-top-menu').is(":hidden")) {
+				$('#mobile-top-menu').slideDown();
+				$('body.home .container.containterHome').css({"z-index":0});
+			}else {
+				$('#mobile-top-menu').slideUp();
+				$('body.home .container.containterHome').css({"z-index":10});
+			}
+
+		});
+		$('#mobile-top-menu .mobile-top-menu-titre').click(function(){
+			//alert('click');
+			if ($(this).parent().find(".mobile-top-menu-bloc-menu").is(":hidden")) {
+				$(this).parent().parent().find(".mobile-top-menu-bloc-menu").slideUp();
+				$(this).parent().find(".mobile-top-menu-bloc-menu").slideDown();
+			}else {
+				$(this).parent().find(".mobile-top-menu-bloc-menu").slideUp();
+			}
+		});
+
+
+
+		// SYSTEME DE TAILLE (4 tailles)
+		compteur_taille_typo=0;
+
+			//CLIC +++
+			$('.footer-content-tailleTypo .bloc.aPlus, header .mobile-top-menu-bloc-menu .aPlus').click(function(){
+				compteur_taille_typo=compteur_taille_typo +1;
+				if(compteur_taille_typo>=0 && compteur_taille_typo<=4){
+					$("body.page .contenu, body.home, body.page .bloc-droite").find('p, ul li, ol li, h1, h2, h3, h4, h5, h6, pre, address').removeClass('taille-00 taille-01 taille-02 taille-03 taille-04');
+					$("body.page .contenu, body.home, body.page .bloc-droite").find('p, ul li, ol li, h1, h2, h3, h4, h5, h6, pre, address').addClass('taille-0'+compteur_taille_typo);
+
+
+					//gestion bouton
+					if(compteur_taille_typo == 4) $('.footer-content-tailleTypo .bloc.aPlus, header .mobile-top-menu-bloc-menu .aPlus').addClass("off");
+					if(compteur_taille_typo != 0) $('.footer-content-tailleTypo .bloc.aMoins, header .mobile-top-menu-bloc-menu .aMoins').removeClass("off");
+				}else{
+
+					//gestion bouton
+					if(compteur_taille_typo == -1) compteur_taille_typo=0;
+					if(compteur_taille_typo == 5) compteur_taille_typo=4;
+				}
+
+			});
+
+			//CLIC ---
+			$('.footer-content-tailleTypo .bloc.aMoins, header .mobile-top-menu-bloc-menu .aMoins').click(function(){
+				compteur_taille_typo=compteur_taille_typo -1;
+				if(compteur_taille_typo>=0 && compteur_taille_typo<=4){
+					$("body.page .contenu, body.home, body.page .bloc-droite").find('p, ul li, ol li, h1, h2, h3, h4, h5, h6, pre, address').removeClass('taille-00 taille-01 taille-02 taille-03 taille-04');
+					$("body.page .contenu, body.home, body.page .bloc-droite").find('p, ul li, ol li, h1, h2, h3, h4, h5, h6, pre, address').addClass('taille-0'+compteur_taille_typo);
+
+					//gestion bouton
+					if(compteur_taille_typo == 0) $('.footer-content-tailleTypo .bloc.aMoins, header .mobile-top-menu-bloc-menu .aMoins').addClass("off");
+					if(compteur_taille_typo != 5) $('.footer-content-tailleTypo .bloc.aPlus, header .mobile-top-menu-bloc-menu .aPlus').removeClass("off");
+				}else{
+
+					//gestion bouton
+					if(compteur_taille_typo == -1) compteur_taille_typo=0;
+					if(compteur_taille_typo == 5) compteur_taille_typo=4;
+				}
+			});
+
+
+
+
+		//**** IMPRESSION ****//
+		function imprimer_page(){
+			window.print();
+		}
+		//********************//
+
+
+		if ($("A.lightbox").length){//gestion FANCYBOITE avec slide
+			//alert("galerie produit");
+			$('A.lightbox').attr('rel', 'groupe').fancybox({
+				'titlePosition'		: 'inside',
+				'overlayColor'		: '#000',
+				'overlayOpacity'	: 0.8,
+				'transitionIn'		: 'elastic',
+				'transitionOut'		: 'elastic'
+			});
+		}else{
+			//alert("else");
+			$(".page .interPage .contenu a img").click(function(){
+
+				//alert($(this).parent().attr('href').substr(-3));
+				if( ("jpg"==$(this).parent().attr('href').substr(-3)) ||
+					("gif"==$(this).parent().attr('href').substr(-3)) ||
+					("png"==$(this).parent().attr('href').substr(-3)) ||
+					("JPG"==$(this).parent().attr('href').substr(-3)) ||
+					("GIF"==$(this).parent().attr('href').substr(-3)) ||
+					("PNG"==$(this).parent().attr('href').substr(-3)) ){
+					//console.log($(this).parent().attr('href').substr(-3));
+					//alert("CLIC2");
+					$(this).parent().fancybox({
+						'titlePosition'		: 'inside',
+						'overlayColor'		: '#000',
+						'overlayOpacity'	: 0.8,
+						'transitionIn'		: 'elastic',
+						'transitionOut'		: 'elastic'
+					});
+				}//fin if
+			});
+		}
+
+
+	});
+</script>
+
+
+
+<!-- All In One SEO Pack 3.4.3[395,424] -->
+<meta name="description" content="Jeudi 20 et vendredi 21 juin 2019, 22 classes de notre école (du CP à la 3ème), soit 615 élèves, se sont rendues au Cinéma «&nbsp;Le Rouge et Noir&nbsp;», pour profiter">
+<link rel="next" href="https://www.presentation-de-marie.fr/page/2/">
+
+<script type="application/ld+json" class="aioseop-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.presentation-de-marie.fr/#organization","url":"https://www.presentation-de-marie.fr/","name":"Présentation de Marie","sameAs":[]},{"@type":"WebSite","@id":"https://www.presentation-de-marie.fr/#website","url":"https://www.presentation-de-marie.fr/","name":"Présentation de Marie","publisher":{"@id":"https://www.presentation-de-marie.fr/#organization"},"potentialAction":{"@type":"SearchAction","target":"https://www.presentation-de-marie.fr/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@type":"WebPage","@id":"https://www.presentation-de-marie.fr#webpage","url":"https://www.presentation-de-marie.fr","inLanguage":"fr-FR","name":"Présentation de Marie","isPartOf":{"@id":"https://www.presentation-de-marie.fr/#website"},"breadcrumb":{"@id":"https://www.presentation-de-marie.fr#breadcrumblist"},"description":"Etablissement d&#039;enseignement Catholique","about":{"@id":"https://www.presentation-de-marie.fr/#organization"}},{"@type":"BreadcrumbList","@id":"https://www.presentation-de-marie.fr#breadcrumblist","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.presentation-de-marie.fr/","url":"https://www.presentation-de-marie.fr/","name":"Présentation de Marie"}}]}]}</script>
+<link rel="canonical" href="https://www.presentation-de-marie.fr/">
+<!-- All In One SEO Pack -->
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="Présentation de Marie » Flux" href="https://www.presentation-de-marie.fr/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.presentation-de-marie.fr\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="https://www.presentation-de-marie.fr/wp-includes/js/wp-emoji-release.min.js?ver=5.4" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="https://www.presentation-de-marie.fr/wp-includes/css/dist/block-library/style.min.css?ver=5.4" type="text/css" media="all">
+<link rel="stylesheet" id="mappress-css" href="https://www.presentation-de-marie.fr/wp-content/plugins/mappress-google-maps-for-wordpress/css/mappress.css?ver=2.42.1" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/css/styles.css?ver=5.4" type="text/css" media="all">
+<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>
+<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1"></script>
+<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/js/general.js?ver=5.4"></script>
+<link rel="https://api.w.org/" href="https://www.presentation-de-marie.fr/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.presentation-de-marie.fr/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.presentation-de-marie.fr/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 5.4">
+<meta name="generator" content="WPML ver:3.1.6 stt:4,1;0">
+<link rel="alternate" hreflang="fr-FR" href="https://www.presentation-de-marie.fr/">
+<link rel="alternate" hreflang="en-US" href="https://www.presentation-de-marie.fr/en/">
+
+<style type="text/css">
+</style>		<script type="text/javascript">
+			var console = {
+				log: function(){}
+			}
+		</script>
+		<!-- Vipers Video Quicktags v6.6.0 | http://www.viper007bond.com/wordpress-plugins/vipers-video-quicktags/ -->
+<style type="text/css">
+.vvqbox { display: block; max-width: 100%; visibility: visible !important; margin: 10px auto; } .vvqbox img { max-width: 100%; height: 100%; } .vvqbox object { max-width: 100%; }
+</style>
+<script type="text/javascript">
+// <![CDATA[
+	var vvqflashvars = {};
+	var vvqparams = { wmode: "opaque", allowfullscreen: "true", allowscriptaccess: "always" };
+	var vvqattributes = {};
+	var vvqexpressinstall = "https://www.presentation-de-marie.fr/wp-content/plugins/vipers-video-quicktags/resources/expressinstall.swf";
+// ]]>
+</script>
+<script type="text/javascript">
+
+</script>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<style type="text/css"></style></head>
+<body class="home blog">
+
+	<header>
+
+
+		<div class="swiper-container" id="swiper_header">
+		    <div class="swiper-wrapper">
+
+						    	<div class="swiper-slide">
+		    		<div class="callage">
+		    	    	<div class="overflow_img_slider_home">
+		    	    	    <div class="callage">
+		    	    	        <img class="img_slider_home" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/timthumb.php?src=http://www.presentation-de-marie.fr/wp-content/uploads/2014/06/slide03.jpg&amp;w=2000&amp;h=435" alt="photo 01" title="photo 01">
+		    	    	    </div>
+		    	    	</div>
+		    	 	</div>
+		    	</div>
+		    			    	<div class="swiper-slide">
+		    		<div class="callage">
+		    	    	<div class="overflow_img_slider_home">
+		    	    	    <div class="callage">
+		    	    	        <img class="img_slider_home" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/timthumb.php?src=http://www.presentation-de-marie.fr/wp-content/uploads/2014/06/slide02.jpg&amp;w=2000&amp;h=435" alt="photo 02" title="photo 02">
+		    	    	    </div>
+		    	    	</div>
+		    	 	</div>
+		    	</div>
+		    			    	<div class="swiper-slide">
+		    		<div class="callage">
+		    	    	<div class="overflow_img_slider_home">
+		    	    	    <div class="callage">
+		    	    	        <img class="img_slider_home" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/timthumb.php?src=http://www.presentation-de-marie.fr/wp-content/uploads/2014/06/slide04.jpg&amp;w=2000&amp;h=435" alt="photo 03" title="photo 03">
+		    	    	    </div>
+		    	    	</div>
+		    	 	</div>
+		    	</div>
+		    			    	<div class="swiper-slide">
+		    		<div class="callage">
+		    	    	<div class="overflow_img_slider_home">
+		    	    	    <div class="callage">
+		    	    	        <img class="img_slider_home" src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/timthumb.php?src=http://www.presentation-de-marie.fr/wp-content/uploads/2014/06/slide01.jpg&amp;w=2000&amp;h=435" alt="photo 04" title="photo 04">
+		    	    	    </div>
+		    	    	</div>
+		    	 	</div>
+		    	</div>
+
+		    </div>
+		</div>
+
+		<div class="masqueSliderContraste"></div>
+
+		<div class="fond-droite"></div>
+
+		<div id="callageHeader" class="hidden-xs hidden-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8" style="position:relative">
+						<div class="fond-gauche"></div>
+						<div class="logo-btn"><a href="https://www.presentation-de-marie.fr" title="La présentation de Marie"></a></div>
+					</div>
+					<div class="col-md-5 col-md-offset-3">
+						<div class="bloc-lang"></div>
+						<div class="slogan">Accompagner<br>votre enfant<br>au fil du temps</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="top-menu" class="hidden-xs hidden-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-16">
+						<ul class="top-menu">
+							<li><a href="https://www.presentation-de-marie.fr"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/top-menu-home.png" alt="Retour accueil"><div class="header-top-menu-separat"></div></a></li>
+							<li class="page_item page-item-956"><a href="https://www.presentation-de-marie.fr/presentation-de-lensemble-scolaire/"><div class="header-top-menu-separat"></div>Présentation</a></li>
+<li class="page_item page-item-6"><a href="https://www.presentation-de-marie.fr/historique/"><div class="header-top-menu-separat"></div>Historique</a></li>
+<li class="page_item page-item-2"><a href="https://www.presentation-de-marie.fr/projet-etablissement/"><div class="header-top-menu-separat"></div>Projet d’établissement 2018-2023</a></li>
+<li class="page_item page-item-199"><a href="https://www.presentation-de-marie.fr/menus-cantine/"><div class="header-top-menu-separat"></div>Menus de la cantine</a></li>
+<li class="page_item page-item-10"><a href="https://www.presentation-de-marie.fr/plan-dacces/"><div class="header-top-menu-separat"></div>Plan d’accès</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="mobile-top-menu-bloc" class="chidden-md hidden-lg">
+			<div id="mobile-top-menu-btn" class="hidden-md hidden-lg">
+				<img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-menu-btn.png" alt="">
+			</div>
+			<div id="mobile-top-logo" class="hidden-md hidden-lg">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-offset-1 col-xs-14 col-sm-offset-3 col-sm-10">
+							<a href="https://www.presentation-de-marie.fr"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-header-logo.png" alt="Retour accueil" class="mobileIMGlogo"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="mobile-top-menu" class="col-xs-16 col-sm-16 hidden-md hidden-lg">
+				<ul class="mobile-top-menu">
+					<li class="mobile-fond-accueil"><a href="https://www.presentation-de-marie.fr"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-accueil.png" alt="Retour accueil"><div class="header-top-menu-separat"></div></a></li>
+					<li class="page_item page-item-956"><a href="https://www.presentation-de-marie.fr/presentation-de-lensemble-scolaire/"><div class="header-top-menu-separat"></div>Présentation</a></li>
+<li class="page_item page-item-6"><a href="https://www.presentation-de-marie.fr/historique/"><div class="header-top-menu-separat"></div>Historique</a></li>
+<li class="page_item page-item-2"><a href="https://www.presentation-de-marie.fr/projet-etablissement/"><div class="header-top-menu-separat"></div>Projet d’établissement 2018-2023</a></li>
+<li class="page_item page-item-199"><a href="https://www.presentation-de-marie.fr/menus-cantine/"><div class="header-top-menu-separat"></div>Menus de la cantine</a></li>
+<li class="page_item page-item-10"><a href="https://www.presentation-de-marie.fr/plan-dacces/"><div class="header-top-menu-separat"></div>Plan d’accès</a></li>
+				</ul>
+
+				<div>
+					<div class="mobile-top-menu-titre">Nos autres écoles</div>
+					<div class="mobile-top-menu-bloc-menu">
+											<div class="container">
+							<div class="row">
+								<div class="col-xs-4 col-sm-4"><a href="http://www.presentation-de-marie.fr/maternelle"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-maternelle.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+								<div class="col-xs-4 col-sm-4"><a href="http://www.presentation-de-marie.fr/primaire/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-primaire.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+								<div class="col-xs-4 col-sm-4"><a href="http://www.presentation-de-marie.fr/college/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-college.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+								<div class="col-xs-4 col-sm-4"><a href="http://www.presentation-de-marie.fr/lycee/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-lycee.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div class="mobile-top-menu-titre">Langues</div>
+					<div class="mobile-top-menu-bloc-menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-offset-4 col-xs-4 col-sm-offset-5 col-sm-3"><a href="http://presentationdemarie.en-test.net"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-lang-fr.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+								<div class="col-xs-4 col-sm-3"><a href="http://presentationdemarie.en-test.net/en"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-lang-en.png" alt="" class="mobile-top-menu-bloc-ecole"></a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div class="mobile-top-menu-titre">Accessibilité</div>
+					<div class="mobile-top-menu-bloc-menu">
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-offset-3 col-xs-5 aPlus"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-aPlus.png" alt="" class="mobileAccessib"></div>
+								<div class="col-xs-5 aMoins"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-top-menu-aMoins.png" alt="" class="mobileAccessib"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-header-masque-right hidden-lg hidden-md"></div>
+
+		<div class="hidden-xs hidden-sm" id="bloc_lang_desk">
+            <div id="lang_sel_list" class="lang_sel_list_horizontal">
+            <ul>
+                                <li class="icl-fr">
+									<a href="https://www.presentation-de-marie.fr/" class="lang_sel_sel">
+																					<img class="iclflag" src="https://www.presentation-de-marie.fr/wp-content/plugins/sitepress-multilingual-cms/res/flags/fr.png" alt="fr" title="Français">&nbsp;
+																			</a>
+                </li>
+                                <li class="icl-en">
+									<a href="https://www.presentation-de-marie.fr/en/" class="lang_sel_other">
+																					<img class="iclflag" src="https://www.presentation-de-marie.fr/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" title="English">&nbsp;
+																			</a>
+                </li>
+                            </ul>
+</div>
+</div>
+
+	</header>
+
+<div class="container containterHome">
+
+	<div class="row push-ecole">
+
+								<div class="col-xs-8 col-md-4 col-sm-8 bloc-maternelle" style="position:relative">
+							<a href="http://www.presentation-de-marie.fr/maternelle"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/push-maternelle.png" class="logo-ecole"></a>
+						  	<div class="texte-presentation hidden-xs hidden-sm typoTaille">
+								<p>Bienvenue à l’école maternelle de la Présentation de Marie</p>
+						  	</div>
+						  	<div class="bouton hidden-xs hidden-sm"><a href="http://www.presentation-de-marie.fr/maternelle">Voir le site</a></div>
+						</div>
+	        								<div class="col-xs-8 col-md-4 col-sm-8 bloc-primaire">
+							<a href="http://www.presentation-de-marie.fr/primaire/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/push-primaire.png" class="logo-ecole"></a>
+						  	<div class="texte-presentation hidden-xs hidden-sm typoTaille">
+								<p>Bienvenue à l’école primaire de la Présentation de Marie</p>
+						  	</div>
+						  	<div class="bouton hidden-xs hidden-sm"><a href="http://www.presentation-de-marie.fr/primaire/">Voir le site</a></div>
+						</div>
+	        								<div class="col-xs-8 col-md-4 col-sm-8 bloc-college">
+							<a href="http://www.presentation-de-marie.fr/college/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/push-college.png" class="logo-ecole"></a>
+						  	<div class="texte-presentation hidden-xs hidden-sm typoTaille">
+								<p>Bienvenue au collège de la Présentation de Marie</p>
+						  	</div>
+						  	<div class="bouton hidden-xs hidden-sm"><a href="http://www.presentation-de-marie.fr/college/">Voir le site</a></div>
+						</div>
+	        								<div class="col-xs-8 col-md-4 col-sm-8 bloc-lycee">
+							<a href="http://www.presentation-de-marie.fr/lycee/"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/push-lycee.png" class="logo-ecole"></a>
+						  	<div class="texte-presentation hidden-xs hidden-sm typoTaille">
+								<p>Bienvenue au lycée de la Présentation de Marie</p>
+						  	</div>
+						  	<div class="bouton hidden-xs hidden-sm"><a href="http://www.presentation-de-marie.fr/lycee/">Voir le site</a></div>
+						</div>
+	        			</div>
+
+
+
+	<div class="row">
+		<div class="col-md- home-separateur"></div>
+	</div>
+
+
+
+	<div class="row parents-eleves">
+		<div class="col-md-4 col-sm-8 col-sm-offset-4 col-md-offset-6 bloc-parents-eleves">
+			<a href="#" target="_blank">
+				Parents d'élèves			</a>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+</div>
+
+	<footer>
+		<div class="container hidden-lg hidden-md  mobileFooter">
+			<div class="row">
+				<div class="col-xs-14 col-xs-offset-1 mobileFooterSeparat">
+					<a href="https://www.presentation-de-marie.fr"><img src="https://www.presentation-de-marie.fr/wp-content/themes/dc_theme-master/images/mobile-footer-logo.png" alt="" class="mobileFooterLogo"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-14 col-xs-offset-1 footerLink">
+						<a href="#" target="_blank">Scolinfo</a>|<a href="#" target="_blank">Boost Connect</a>|<a href="https://www.presentation-de-marie.fr/plan-dacces/" target="_blank">Plan d’accès</a>|<a href="https://www.presentation-de-marie.fr/mentions-legales/" target="_blank">Mentions légales</a>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="container hidden-xs hidden-sm">
+			<div class="row">
+				<div class="col-md-6 footerLogo footer-separateur-vertical">
+					<div class="footerLogoBTN"><a href="https://www.presentation-de-marie.fr" title="Retour à l'accueil"></a></div>
+				</div>
+				<div class="col-md-10 footerAdresse">
+					<span>Un établissement de l'enseignement catholique</span>
+					<div class="footerText">1, rue monseigneur Paget | 74160 Saint-Julien-en-Genevois | Haute-Savoie<br>04 50 49 21 35</div>
+				</div>
+			</div>
+			<div class="row hidden-xs hidden-sm">
+				<div class="col-md-16 footer-separateur-logo"></div>
+			</div>
+			<div class="row hidden-xs hidden-sm footer-option">
+				<div class="col-md-6 footer-separateur-vertical">
+					<div class="footer-content-ecole">
+						<div class="bloc"><a href="http://www.presentation-de-marie.fr/maternelle" target="_blank" class="f-maternelle"></a></div>
+						<div class="bloc"><a href="http://www.presentation-de-marie.fr/primaire/" target="_blank" class="f-primaire"></a></div>
+						<div class="bloc"><a href="http://www.presentation-de-marie.fr/college/" target="_blank" class="f-college"></a></div>
+						<div class="bloc"><a href="http://www.presentation-de-marie.fr/lycee/" target="_blank" class="f-lycee"></a></div>
+					</div>
+				</div>
+				<div class="col-md-3 footer-separateur-vertical">
+					<div class="footer-content-tailleTypo">
+						<div class="bloc aPlus"></div>
+						<div class="bloc aMoins off"></div>
+					</div>
+				</div>
+				<div class="col-md-4 footer-separateur-vertical">
+					<div class="footer-content-contraste">
+						<div class="bloc"><div class="f-contraste"></div></div>
+						<div class="bloc"><a href="?contraste=on" class="f-contraste-on"></a></div>
+						<div class="bloc"><a href="?contraste=off" class="f-contraste-off actif"></a></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footer-content-print">
+						<div class="bloc" onclick="window.print()"><a href="" class="f-impression"></a></div>
+					</div>
+				</div>
+			</div>
+			<div class="row hidden-xs hidden-sm">
+				<div class="col-md-16 footer-separateur"></div>
+			</div>
+			<div class="row hidden-xs hidden-sm">
+				<div class="col-md-16 footerLink">
+					<a href="https://www.scolinfo.net/" target="_blank">Scolinfo</a>|<a href="https://presentationdemarie.boost-connect.com/Account/Login.aspx?ReturnUrl=%2fAccount%2f" target="_blank">Boost Connect</a>|<a href="https://www.presentation-de-marie.fr/plan-dacces/" target="_blank">Plan d’accès</a>|<a href="https://www.presentation-de-marie.fr/mentions-legales/" target="_blank">Mentions légales</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-includes/js/wp-embed.min.js?ver=5.4"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var icl_vars = {"current_language":"fr","icl_home":"https:\/\/www.presentation-de-marie.fr\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://www.presentation-de-marie.fr/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js?ver=5.4"></script>
+
+
+
+</body>
+</html>
