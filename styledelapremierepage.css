@@ -16,6 +16,7 @@ body {
 }
 
 .container h1{
+  text: linear-gradient(red, yellow);
   font-size: 160px;
   margin: 0;
   font-weight: 900;
