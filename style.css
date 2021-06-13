@@ -1,4 +1,74 @@
+
 element.style {
+    font-weight: bold;
+}
+a, abbr, acronym, address, applet, b, big, blockquote, body, button, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, title, tr, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+style attribute {
+    font-size: 43px;
+}
+style attribute {
+    text-shadow: rgb(0 0 0 / 40%) 0px 4px 5px;
+}
+.color_15 {
+    color: rgb(var(--color_15));
+}
+style attribute {
+    font-size: 43px;
+    line-height: 1em;
+}
+._2bafp blockquote, ._2bafp h1, ._2bafp h2, ._2bafp h3, ._2bafp h4, ._2bafp h5, ._2bafp h6, ._2bafp p {
+    margin: 0;
+    line-height: normal;
+    letter-spacing: normal;
+}
+.font_3 {
+    font: var(--font_3);
+    color: rgb(var(--color_15));
+}
+._2bafp>* {
+    pointer-events: auto;
+}
+user agent stylesheet
+h3 {
+    font-size: 1.17em;
+    font-weight: bold;
+}
+._2bafp {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: start;
+    pointer-events: none;
+}
+[data-mesh-id$=-gridContainer]>*, [data-mesh-id$=-rotated-wrapper]>*, [data-mesh-id$=inlineContent]>:not([data-mesh-id$=-gridContainer]) {
+    pointer-events: auto;
+}
+[data-mesh-id$=centeredContent], [data-mesh-id$=form], [data-mesh-id$=inlineContent] {
+    position: relative;
+    pointer-events: none;
+}
+._1Cfot {
+    pointer-events: none;
+}
+#SITE_PAGES {
+    --transition-duration: 700ms;
+}
+#PAGES_CONTAINER {
+    left: 0;
+    margin-left: 0;
+    width: 100%;
+    min-width: 980px;
+    --pinned-layer-in-container: 51;
+    --above-all-in-container: 49;
+}
+#masterPage {
+    --pinned-layers-in-page: 0;
 }
 body {
     font-size: 10px;
@@ -55,3 +125,7 @@ body {
     --wix-ads-height: 50px;
     --wix-ads-top-height: 50px;
     --site-width: 980px;
+    --above-all-z-index: 100000;
+    --minViewportSize: 320;
+    --maxViewportSize: 1920;
+}
